@@ -12,7 +12,22 @@ public class StringCode {
 	 * @return max run length
 	 */
 	public static int maxRun(String str) {
-		return 0; // YOUR CODE HERE
+		int dodaichuoicondainhat=0;
+
+		for(int i=0;i<str.length();i++)
+		{
+			int dodaichuoiconhientai=1;
+			char currentChar=str.charAt(i);
+			while(currentChar==str.charAt(i+1)&&i+1<str.length())
+			{
+				dodaichuoiconhientai++;
+				i++;
+			}
+			dodaichuoicondainhat=Math.max(dodaichuoicondainhat,dodaichuoiconhientai);
+
+		}
+
+		return dodaichuoicondainhat; // YOUR CODE HERE
 	}
 
 	
@@ -24,7 +39,28 @@ public class StringCode {
 	 * @return blown up string
 	 */
 	public static String blowup(String str) {
-		return null; // YOUR CODE HERE
+		StringBuilder result=new StringBuilder();
+		for (int i=0;i<str.length();i++)
+		{
+
+			char currentChar=str.charAt(i);
+			if(Character.isDigit(str.charAt(i))&&Character.isAlphabetic(str.charAt(i+1)))
+			{
+				int digitvalue= Character.getNumericValue(currentChar);
+						char nextChar =str.charAt(i+1);
+						for (int j=0;j<digitvalue;i++)
+						{
+							result.append(nextChar);
+
+						}
+
+
+			}
+			else {
+				result.append(currentChar);
+			}
+		}
+		return result.toString(); // YOUR CODE HERE
 	}
 	
 	/**
